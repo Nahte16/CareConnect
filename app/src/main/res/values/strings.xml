@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CareConnect1</string>
+    <string name="app_name">CareConnect</string>
     <string name="careconnect">CareConnect</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
@@ -7,4 +7,16 @@
     <string name="register_for_new_user">Register for New User</string>
     <string name="login_button">Login</string>
     <string name="register_button">REGISTER</string>
+    <string name="care_connect">Care Connect</string>
+    <string name="top_doctors">Top Doctors</string>
+    <string name="family_physicians">FAMILY PHYSICIANS</string>
+    <string name="dietician">DIETICIAN</string>
+    <string name="dentist">DENTIST</string>
+    <string name="surgeon">SURGEON</string>
+    <string name="lab_test">LAB TEST</string>
+    <string name="buy_medicine">BUY MEDICINE</string>
+    <string name="find_doctor">FIND DOCTOR</string>
+    <string name="health_articles">HEALTH ARTICLES</string>
+    <string name="order_details">ORDER DETAILS</string>
+    <string name="logout">LOGOUT</string>
 </resources>
