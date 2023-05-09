@@ -19,4 +19,5 @@
     <string name="health_articles">HEALTH ARTICLES</string>
     <string name="order_details">ORDER DETAILS</string>
     <string name="logout">LOGOUT</string>
+    <string name="back">BACK</string>
 </resources>
