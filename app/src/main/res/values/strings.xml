@@ -20,4 +20,8 @@
     <string name="order_details">ORDER DETAILS</string>
     <string name="logout">LOGOUT</string>
     <string name="back">BACK</string>
+    <string name="_24_7_healthcare">24*7 Healthcare</string>
+    <string name="healtharticles">Health Articles</string>
+    <string name="btnBack">BACK</string>
+    <string name="text1">text1</string>
 </resources>

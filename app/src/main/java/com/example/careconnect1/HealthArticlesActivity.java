@@ -15,16 +15,16 @@ import java.util.HashMap;
 
 public class HealthArticlesActivity extends AppCompatActivity {
 
-    private String[][] health_details =
+    private final String[][] health_details =
             {
-                    {"walking Daily", "", "", "","Click More Details"},
-                    {"Home care of COVID-19", "", "", "", "Click More Details"},
-                    {"Stop Smoking", "", "", "", "Click More Details"},
+                    {"Walking Daily", "", "", "", "Click More Details"},
+                    {"Home care of COVID-19", "", "", "",  "Click More Details"},
+                    {"Stop Smoking","","", "", "Click More Details"},
                     {"Menstrual Cramps", "", "", "", "Click More Details"},
                     {"Healthy Gut", "", "", "", "Click More Details"}
             };
 
-    private int[] imgages = {
+    private final int[] images = {
         R.drawable.health1,
         R.drawable.health2,
         R.drawable.health3,
@@ -61,7 +61,7 @@ public class HealthArticlesActivity extends AppCompatActivity {
             item.put("line3", health_details[i][2]);
             item.put("line4", health_details[i][3]);
             item.put("line5", health_details[i][4]);
-            list.add(item);
+            list.add( item );
         }
 
         sa = new SimpleAdapter(this, list,
@@ -75,7 +75,7 @@ public class HealthArticlesActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent it = new Intent(HealthArticlesActivity.this, HealthArticleDetailsActivity.class);
                 it.putExtra("text1", health_details[i][0]);
-                it.putExtra("text2", imgages[i]);
+                it.putExtra("text2", images[i]);
                 startActivity(it);
             }
         });
