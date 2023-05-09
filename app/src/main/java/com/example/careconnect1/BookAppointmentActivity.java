@@ -31,7 +31,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_appointment);
 
-        btnBack = findViewById(R.id.buttonAppBack);
+        btnBack = findViewById(R.id.buttonLTBack);
         btnBook = findViewById(R.id.buttonBookAppointment);
         dateButton = findViewById(R.id.buttonAppDate);
         timeButton = findViewById(R.id.buttonAppTime);
