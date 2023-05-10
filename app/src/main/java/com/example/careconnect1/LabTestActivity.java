@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
@@ -16,7 +15,7 @@ import java.util.HashMap;
 
 public class LabTestActivity extends AppCompatActivity {
 
-    private String [] [] packages =
+    private String [][] packages =
             {
                     {"Packages 1 : Full Body Checkup", "", "", "", "999"},
                     {"Packages 2 : Blood Glucose Fasting", "", "", "", "299"},
@@ -24,7 +23,7 @@ public class LabTestActivity extends AppCompatActivity {
                     {"Packages 4 : Thyroid Check", "", "", "", "499"},
                     {"Packages 5 : Immunity Check", "", "", "", "699"},
             };
-    private String [] packages_details = {
+    private String [] package_details = {
             "Blood Glucose Fasting\n" +
                     "Complete Hemogram\n" +
                     "HbA1c\n" +
@@ -55,8 +54,8 @@ public class LabTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lab_test);
 
-        btnGoToCart = findViewById(R.id.buttonLTGoToCart);
-        btnBack = findViewById(R.id.buttonLTBack);
+        btnGoToCart = findViewById(R.id.buttonLDAddToCart);
+        btnBack = findViewById(R.id.buttonLDGoBack);
         listView = findViewById(R.id.ListViewLT);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -88,8 +87,8 @@ public class LabTestActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent it = new Intent(LabTestActivity.this, LabTestDetailsActivity.class);
                 it.putExtra("Text1", packages[i][0]);
-                it.putExtra("Text2", packages_details[i]);
-                it.putExtra("Text1", packages[i][4]);
+                it.putExtra("Text2", package_details[i]);
+                it.putExtra("Text3", packages[i][4]);
                 startActivity(it);
             }
         });
