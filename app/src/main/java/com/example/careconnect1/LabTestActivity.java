@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
@@ -55,8 +54,8 @@ public class LabTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lab_test);
 
-        btnGoToCart = findViewById(R.id.buttonLTGoToCart);
-        btnBack = findViewById(R.id.buttonLTBack);
+        btnGoToCart = findViewById(R.id.buttonLDAddToCart);
+        btnBack = findViewById(R.id.buttonLDGoBack);
         listView = findViewById(R.id.ListViewLT);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
