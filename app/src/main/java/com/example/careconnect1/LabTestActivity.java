@@ -15,7 +15,7 @@ import java.util.HashMap;
 
 public class LabTestActivity extends AppCompatActivity {
 
-    private String [] [] packages =
+    private String [][] packages =
             {
                     {"Packages 1 : Full Body Checkup", "", "", "", "999"},
                     {"Packages 2 : Blood Glucose Fasting", "", "", "", "299"},
@@ -23,7 +23,7 @@ public class LabTestActivity extends AppCompatActivity {
                     {"Packages 4 : Thyroid Check", "", "", "", "499"},
                     {"Packages 5 : Immunity Check", "", "", "", "699"},
             };
-    private String [] packages_details = {
+    private String [] package_details = {
             "Blood Glucose Fasting\n" +
                     "Complete Hemogram\n" +
                     "HbA1c\n" +
@@ -87,8 +87,8 @@ public class LabTestActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent it = new Intent(LabTestActivity.this, LabTestDetailsActivity.class);
                 it.putExtra("Text1", packages[i][0]);
-                it.putExtra("Text2", packages_details[i]);
-                it.putExtra("Text1", packages[i][4]);
+                it.putExtra("Text2", package_details[i]);
+                it.putExtra("Text3", packages[i][4]);
                 startActivity(it);
             }
         });
