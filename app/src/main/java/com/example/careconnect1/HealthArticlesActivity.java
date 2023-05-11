@@ -42,7 +42,7 @@ public class HealthArticlesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health_articles);
-        getSupportActionBar().hide();
+
         lst = findViewById(R.id.listViewHA);
         btnBack = findViewById(R.id.buttonHABack);
         btnBack.setOnClickListener(new View.OnClickListener() {

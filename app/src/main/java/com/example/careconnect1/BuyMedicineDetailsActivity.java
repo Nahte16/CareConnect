@@ -24,7 +24,7 @@ public class BuyMedicineDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy_medicine_details);
-        getSupportActionBar().hide();
+
         tvPackageName = findViewById(R.id.textViewBMDPackageName);
         edDetails = findViewById(R.id.editTextTextBMDMultiLine);
         edDetails.setKeyListener(null);

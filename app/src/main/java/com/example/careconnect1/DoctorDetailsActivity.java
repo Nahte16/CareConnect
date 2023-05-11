@@ -65,7 +65,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_details);
-        getSupportActionBar().hide();
+
         tv = findViewById(R.id.textView_logo6);
         btn = findViewById(R.id.buttonLDGoBack);
         Intent it = getIntent();

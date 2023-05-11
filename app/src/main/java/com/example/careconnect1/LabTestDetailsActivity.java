@@ -21,7 +21,7 @@ public class LabTestDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lab_test_details);
-        getSupportActionBar().hide();
+
         tvPackageName = findViewById(R.id.textViewLDPackageName);
         tvTotalCost = findViewById(R.id.textViewLDTotalCost);
         edDetails = findViewById(R.id.editTextLDTextMultiLine);

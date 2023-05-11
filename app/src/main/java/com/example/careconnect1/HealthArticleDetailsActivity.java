@@ -19,7 +19,7 @@ public class HealthArticleDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health_article_details);
-        getSupportActionBar().hide();
+
         btnBack = findViewById(R.id.buttonHADBack);
         tv1 = findViewById(R.id.textViewHADtitle);
         img = findViewById(R.id.imageViewHAD);
