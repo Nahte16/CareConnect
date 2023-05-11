@@ -22,15 +22,15 @@ import java.util.Calendar;
 public class BookAppointmentActivity extends AppCompatActivity {
     EditText ed1, ed2, ed3;
     TextView tv;
-    Button btnBack;
+    Button btnBack, dateButton, timeButton;
     private DatePickerDialog datePickerDialog;
     private TimePickerDialog timePickerDialog;
-    private Button dateButton, timeButton,btnBook;
+    private Button btnBook;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_appointment);
-
+        getSupportActionBar().hide();
         btnBack = findViewById(R.id.buttonLDGoBack);
         btnBook = findViewById(R.id.buttonBookAppointment);
         dateButton = findViewById(R.id.buttonAppDate);
@@ -73,7 +73,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
 
         //timepicker
         initTimePicker();
-        dateButton.setOnClickListener(new View.OnClickListener() {
+        timeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 timePickerDialog.show();
@@ -89,7 +89,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
                 if(db.checkAppointmentExists(username,title+" => "+ fullname,address,dateButton.getText().toString(),timeButton.getText().toString())==1){
                     Toast.makeText(getApplicationContext(),"Appointment already booked", Toast.LENGTH_LONG).show();
                 }else{
-                    //db.addOrder(username, title+" => "+fullname,address,dateButton.getText().toString(),timeButton.getText().toString(),Float.parseFloat(fees),"appointment");
+                    db.addOrderBookAppointment(username, title+" => "+fullname,address,0,dateButton.getText().toString(),timeButton.getText().toString(),Float.parseFloat(fees),"appointment");
                     Toast.makeText(getApplicationContext(),"Your appointment is done successfully",Toast.LENGTH_LONG).show();
                     startActivity(new Intent(BookAppointmentActivity.this,HomeActivity.class));
                 }

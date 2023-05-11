@@ -50,7 +50,6 @@
             android:layout_width="0dp"
             android:layout_weight="0.3"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:textColor="#ffff66"
             android:textSize="12sp"/>
 

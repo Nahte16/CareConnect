@@ -16,7 +16,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        getSupportActionBar().hide();
         SharedPreferences sharedpreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
         String username = sharedpreferences.getString("username", "").toString();
         Toast.makeText(getApplicationContext(),"Welcome "+username,Toast.LENGTH_SHORT).show();
