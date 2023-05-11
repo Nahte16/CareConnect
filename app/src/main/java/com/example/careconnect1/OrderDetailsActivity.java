@@ -39,8 +39,8 @@ public class OrderDetailsActivity extends AppCompatActivity {
         });
 
         Database db = new Database(getApplicationContext(), "healthcare", null, 1);
-        SharedPreferences sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
-        String username = sharedPreferences.getString("username","").toString();
+        SharedPreferences sharedpreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
+        String username = sharedpreferences.getString("username","").toString();
         ArrayList dbData = db.getOrderData(username);
 
         order_details = new String[dbData.size()][];

@@ -87,19 +87,21 @@
         android:background="@drawable/btn_bg"
         android:text="@string/login_button"
         android:textColor="@color/colorWhite"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextLoginPassword" />
 
-    <TextView
-        android:id="@+id/textViewNewUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/register_for_new_user"
+    <Button
+        android:id="@+id/buttonRegister"
+        android:layout_width="159dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="92dp"
+        android:background="@drawable/btn_bg"
+        android:text="Register"
         android:textColor="@color/colorWhite"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextLoginPassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>

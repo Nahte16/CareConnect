@@ -13,7 +13,7 @@ public class FindDoctorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_doctor);
-
+        getSupportActionBar().hide();
         CardView exit = findViewById(R.id.cardFDBack);
         exit.setOnClickListener(new View.OnClickListener() {
             @Override

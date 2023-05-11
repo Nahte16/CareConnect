@@ -75,7 +75,7 @@ public class Database  extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         String str[] = new String[1];
         str[0] = username;
-        Cursor c = db.rawQuery("select * from orderplace where username = ?",str);
+        Cursor c = db.rawQuery("select * from orderplace where username = ? ",str);
         if(c.moveToFirst()){
             do{
                 arr.add(c.getString(1) +"$"+c.getString(2)+"$"+c.getString(3)+"$"+c.getString(4)+"$"+c.getString(5)+"$"+c.getString(6)+"$"+c.getString(7)+"$"+c.getString(8));
@@ -113,6 +113,36 @@ public class Database  extends SQLiteOpenHelper {
         str[1] = otype;
         SQLiteDatabase db = getWritableDatabase();
         db.delete("cart","username=? and otype=?", str);
+        db.close();
+    }
+    public void addOrder(String username, String fullname, String address, String contact, int pincode, String date, String time, float price, String otype){
+        ContentValues cv = new ContentValues();
+        cv.put("username",username);
+        cv.put("fullname",fullname);
+        cv.put("address",address);
+        cv.put("contact",contact);
+        cv.put("pincode",pincode);
+        cv.put("date",date);
+        cv.put("time",time);
+        cv.put("price",price);
+        cv.put("otype",otype);
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert("orderplace", null, cv);
+        db.close();
+    }
+
+    public void addOrderBookAppointment(String username, String fullname, String address,int pincode, String date, String time, float price, String otype){
+        ContentValues cv = new ContentValues();
+        cv.put("username",username);
+        cv.put("fullname",fullname);
+        cv.put("address",address);
+        cv.put("pincode",pincode);
+        cv.put("date",date);
+        cv.put("time",time);
+        cv.put("price",price);
+        cv.put("otype",otype);
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert("orderplace", null, cv);
         db.close();
     }
 
