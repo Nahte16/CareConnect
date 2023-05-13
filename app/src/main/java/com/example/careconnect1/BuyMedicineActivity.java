@@ -58,7 +58,7 @@ public class BuyMedicineActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy_medicine);
-        getSupportActionBar().hide();
+
         lst = findViewById(R.id.listViewBM);
         btnBack = findViewById(R.id.buttonBMBack);
         btnGoToCart = findViewById(R.id.buttonBMGoToCart);
@@ -66,7 +66,7 @@ public class BuyMedicineActivity extends AppCompatActivity {
         btnGoToCart.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                //startActivity(new Intent(BuyMedicineActivity.this,CartBuyMedicineActivity.class));
+                startActivity(new Intent(BuyMedicineActivity.this,CartBuyMedicineActivity.class));
             }
         });
 

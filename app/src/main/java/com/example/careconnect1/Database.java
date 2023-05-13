@@ -23,6 +23,9 @@ public class Database  extends SQLiteOpenHelper {
 
         String qry2 = "create table cart(username text,product text,price float,otype text)";
         sqLiteDatabse.execSQL(qry2);
+
+        String qry3 = "create table orderplace(username text,fullname text,address text,contactno text, pincode int, date text,time text,amount float,otype text)";
+        sqLiteDatabse.execSQL(qry3);
     }
 
     @Override
@@ -144,6 +147,24 @@ public class Database  extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         db.insert("orderplace", null, cv);
         db.close();
+    }
+
+    public ArrayList getCartData(String username, String otype){
+        ArrayList<String> arr = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        String str[] = new String [2];
+        str[0] = username;
+        str[1] = otype;
+        Cursor c = db.rawQuery("select * from cart where username = ? and otype = ?",str);
+        if (c.moveToFirst()){
+            do{
+                String product = c.getString(1);
+                String price = c.getString(2);
+                arr.add(product+"P"+price);
+            }while(c.moveToNext());
+        }
+        db.close();
+        return arr;
     }
 
 }
