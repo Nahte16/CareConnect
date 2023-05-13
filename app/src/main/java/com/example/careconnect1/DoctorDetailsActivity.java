@@ -67,7 +67,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_doctor_details);
 
         tv = findViewById(R.id.textView_logo6);
-        btn = findViewById(R.id.buttonCartBack);
+        btn = findViewById(R.id.buttonBMCartBack);
         Intent it = getIntent();
         String title = it.getStringExtra("title");
         tv.setText(title);
@@ -102,7 +102,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
         sa = new SimpleAdapter(this,list,R.layout.multi_lines,new String[]{"line1","line2","line3","line4"},
                 new int [] {R.id.line_a,R.id.line_b,R.id.line_c,R.id.line_d,}
                 );
-        ListView lst = findViewById(R.id.listViewCart);
+        ListView lst = findViewById(R.id.listViewBMCart);
         lst.setAdapter(sa);
 
         lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {

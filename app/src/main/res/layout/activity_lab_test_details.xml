@@ -8,7 +8,7 @@
     tools:context=".LabTestDetailsActivity">
 
     <TextView
-        android:id="@+id/textViewCartTitle"
+        android:id="@+id/textViewBMCartTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -63,7 +63,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/buttonCartCheckout"
+        android:id="@+id/buttonBMCartCheckout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -88,7 +88,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCartTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBMCartTitle"
         tools:ignore="MissingConstraints"/>
 
     <TextView
@@ -98,7 +98,7 @@
         android:text="TextView"
         android:textColor="@color/yellowLight"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@id/buttonCartCheckout"
+        app:layout_constraintBottom_toTopOf="@id/buttonBMCartCheckout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"

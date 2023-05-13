@@ -8,7 +8,7 @@
     tools:context=".CartLabActivity">
 
     <TextView
-        android:id="@+id/textViewCartTotalCost"
+        android:id="@+id/textViewBMCartTotalCost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TOTAL COST:2000/-"
@@ -16,7 +16,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listViewCart" />
+        app:layout_constraintTop_toBottomOf="@+id/listViewBMCart" />
 
     <TextView
         android:id="@+id/tvDate4"
@@ -28,10 +28,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.097"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCartTotalCost" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewBMCartTotalCost" />
 
     <Button
-        android:id="@+id/buttonTime"
+        android:id="@+id/buttonCartTime"
         style="?android:spinnerStyle"
         android:layout_width="109dp"
         android:layout_height="52dp"
@@ -51,10 +51,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.905"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCartTotalCost" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewBMCartTotalCost" />
 
     <TextView
-        android:id="@+id/textViewCartTitle"
+        android:id="@+id/textViewBMCartTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -100,7 +100,7 @@
         app:layout_constraintVertical_bias="0.01" />
 
     <ListView
-        android:id="@+id/listViewCart"
+        android:id="@+id/listViewBMCart"
         android:layout_width="380dp"
         android:layout_height="357dp"
         android:layout_marginTop="16dp"
@@ -112,7 +112,7 @@
         app:layout_constraintVertical_bias="0.202" />
 
     <Button
-        android:id="@+id/buttonCartBack"
+        android:id="@+id/buttonBMCartBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="BACK"
@@ -120,11 +120,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listViewCart"
+        app:layout_constraintTop_toBottomOf="@+id/listViewBMCart"
         app:layout_constraintVertical_bias="0.704" />
 
     <Button
-        android:id="@+id/buttonCartCheckout"
+        android:id="@+id/buttonBMCartCheckout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Checkout"
@@ -132,11 +132,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listViewCart"
+        app:layout_constraintTop_toBottomOf="@+id/listViewBMCart"
         app:layout_constraintVertical_bias="0.704" />
 
     <Button
-        android:id="@+id/buttonDate"
+        android:id="@+id/buttonBMCartDate"
         style="?android:spinnerStyle"
         android:layout_width="109dp"
         android:layout_height="52dp"
