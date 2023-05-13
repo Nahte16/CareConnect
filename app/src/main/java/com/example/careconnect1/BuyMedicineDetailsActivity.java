@@ -24,7 +24,7 @@ public class BuyMedicineDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy_medicine_details);
-        getSupportActionBar().hide();
+
         tvPackageName = findViewById(R.id.textViewBMDPackageName);
         edDetails = findViewById(R.id.editTextTextBMDMultiLine);
         edDetails.setKeyListener(null);
@@ -40,7 +40,7 @@ public class BuyMedicineDetailsActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view){
-               startActivity(new Intent(BuyMedicineDetailsActivity.this, BuyMedicineDetailsActivity.class));
+               startActivity(new Intent(BuyMedicineDetailsActivity.this, BuyMedicineActivity.class));
            }
         });
 
@@ -60,7 +60,7 @@ public class BuyMedicineDetailsActivity extends AppCompatActivity {
                     db = new Database(getApplicationContext(),"healthcare",null,1);
                     db.addCart(username,product,price,"medicine");
                     Toast.makeText(getApplicationContext(),"Record Inserted to Cart", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(BuyMedicineDetailsActivity.this, BuyMedicineDetailsActivity.class));
+                    startActivity(new Intent(BuyMedicineDetailsActivity.this, BuyMedicineActivity.class));
                 }
             }
         });

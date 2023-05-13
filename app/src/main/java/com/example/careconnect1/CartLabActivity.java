@@ -12,53 +12,83 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 
-public class BookAppointmentActivity extends AppCompatActivity {
-    EditText ed1, ed2, ed3;
-    TextView tv;
-    Button btnBack;
+public class CartLabActivity extends AppCompatActivity {
+    HashMap<String, String> item;
+    ArrayList list;
+    SimpleAdapter sa;
+    TextView tvTotal;
+    ListView lst;
     private DatePickerDialog datePickerDialog;
     private TimePickerDialog timePickerDialog;
-    private Button dateButton, timeButton,btnBook;
+    private Button dateButton, timeButton, btnCheckout, btnBack;
+    private String [][] packages = {};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_appointment);
+        setContentView(R.layout.activity_cart_lab);
 
-        btnBack = findViewById(R.id.buttonCartBack);
-        btnBook = findViewById(R.id.buttonBookAppointment);
         dateButton = findViewById(R.id.buttonDate);
         timeButton = findViewById(R.id.buttonTime);
-        tv = findViewById(R.id.textViewAppTitle);
-        ed1 = findViewById(R.id.editTextAppFullName);
-        ed2 = findViewById(R.id.editTextAppAddress);
-        ed3 = findViewById(R.id.editTextAppFees);
+        btnCheckout = findViewById(R.id.buttonCartCheckout);
+        btnBack = findViewById(R.id.buttonCartBack);
+        tvTotal = findViewById(R.id.textViewCartTotalCost);
+        lst = findViewById(R.id.listViewCart);
 
-        ed1.setKeyListener(null);
-        ed2.setKeyListener(null);
-        ed3.setKeyListener(null);
+        SharedPreferences sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
+        String username = sharedPreferences.getString("username", "").toString();
 
-        Intent it = getIntent();
-        String title = it.getStringExtra("text1");
-        String fullname = it.getStringExtra("text2");
-        String address = it.getStringExtra("text3");
-        String fees = it.getStringExtra("text4");
+        Database db = new Database(getApplicationContext(),"healthcare", null, 1);
 
-        tv.setText(title);
-        ed1.setText(fullname);
-        ed2.setText(address);
-        ed3.setText("Cons Fees: ₱" + fees );
+        float   totalAmount = 0;
+        ArrayList dbData = db.getCartData(username,"lab");
+        Toast.makeText(getApplicationContext(),""+dbData,Toast.LENGTH_LONG).show();
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        packages = new String[dbData.size()][];
+        for (int i=0; i<packages.length;i++){
+            packages[i] = new String[5];
+        }
+
+        for(int i=0;i<dbData.size();i++){
+            String arrData = dbData.get(i).toString();
+            String[] strData = arrData.split(java.util.regex.Pattern.quote("P"));
+            packages[i][0] = strData[0];
+            packages[i][4] = "Cost : "+strData[1]+"/-";
+            totalAmount = totalAmount + Float.parseFloat(strData[2]);
+        }
+        tvTotal.setText("Total Cost : "+totalAmount);
+
+        list = new ArrayList();
+        for (int i=0;i<packages.length;i++){
+            item = new HashMap<String, String>();
+            item.put("line1", packages[i][0]);
+            item.put("line2", packages[i][1]);
+            item.put("line3", packages[i][2]);
+            item.put("line4", packages[i][3]);
+            item.put("line5", packages[i][4]);
+            list.add(item);
+
+        }
+        sa = new SimpleAdapter(this, list,
+                R.layout.multi_lines,
+                new String[]{ "line1" , "line2" , "line3" ,"line4", "line5"},
+                new int[] {R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d, R.id.line_e });
+        lst.setAdapter(sa);
+
+        btnBack.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(BookAppointmentActivity.this,FindDoctorActivity.class));
+            public void onClick(View view){
+                startActivity(new Intent(CartLabActivity.this,LabTestActivity.class));
             }
         });
 
@@ -80,21 +110,6 @@ public class BookAppointmentActivity extends AppCompatActivity {
             }
         });
 
-        btnBook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Database db = new Database(getApplicationContext(),"healthcare", null, 1);
-                SharedPreferences sharedpreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
-                String username = sharedpreferences.getString("username", "").toString();
-                if(db.checkAppointmentExists(username,title+" => "+ fullname,address,dateButton.getText().toString(),timeButton.getText().toString())==1){
-                    Toast.makeText(getApplicationContext(),"Appointment already booked", Toast.LENGTH_LONG).show();
-                }else{
-                    db.addOrderBookAppointment(username, title+" => "+fullname,address,0,dateButton.getText().toString(),timeButton.getText().toString(),Float.parseFloat(fees),"appointment");
-                    Toast.makeText(getApplicationContext(),"Your appointment is done successfully",Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(BookAppointmentActivity.this,HomeActivity.class));
-                }
-            }
-        });
     }
     private void initDatePicker(){
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
@@ -113,6 +128,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
         datePickerDialog = new DatePickerDialog(this,style,dateSetListener,year,month,day);
         datePickerDialog.getDatePicker().setMinDate(cal.getTimeInMillis()+86400000);
     }
+
     private void initTimePicker(){
         TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
@@ -127,4 +143,5 @@ public class BookAppointmentActivity extends AppCompatActivity {
         int style = AlertDialog.THEME_HOLO_DARK;
         timePickerDialog = new TimePickerDialog(this,style,timeSetListener,hrs,mins,true);
     }
+
 }

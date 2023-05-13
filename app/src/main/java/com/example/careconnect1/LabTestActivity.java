@@ -53,10 +53,10 @@ public class LabTestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lab_test);
-        getSupportActionBar().hide();
-        btnGoToCart = findViewById(R.id.buttonLDAddToCart);
-        btnBack = findViewById(R.id.buttonLDGoBack);
-        listView = findViewById(R.id.ListViewLT);
+
+        btnGoToCart = findViewById(R.id.buttonCartCheckout);
+        btnBack = findViewById(R.id.buttonCartBack);
+        listView = findViewById(R.id.listViewCart);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +90,13 @@ public class LabTestActivity extends AppCompatActivity {
                 it.putExtra("Text2", package_details[i]);
                 it.putExtra("Text3", packages[i][4]);
                 startActivity(it);
+            }
+        });
+
+        btnGoToCart.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                startActivity(new Intent(LabTestActivity.this,CartLabActivity.class));
             }
         });
     }

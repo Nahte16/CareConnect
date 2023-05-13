@@ -21,11 +21,11 @@ public class LabTestDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lab_test_details);
-        getSupportActionBar().hide();
-        tvPackageName = findViewById(R.id.textViewLDPackageName);
+
+        tvPackageName = findViewById(R.id.textViewCartTitle);
         tvTotalCost = findViewById(R.id.textViewLDTotalCost);
         edDetails = findViewById(R.id.editTextLDTextMultiLine);
-        btnAddToCart = findViewById(R.id.buttonLDAddToCart);
+        btnAddToCart = findViewById(R.id.buttonCartCheckout);
         btnBack = findViewById(R.id.buttonLDBack);
 
         edDetails.setKeyListener(null);
