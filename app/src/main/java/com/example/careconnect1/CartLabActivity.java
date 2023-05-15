@@ -76,13 +76,13 @@ public class CartLabActivity extends AppCompatActivity {
             item.put("line3", packages[i][2]);
             item.put("line4", packages[i][3]);
             item.put("line5", packages[i][4]);
-            list.add(item);
+            list.add( item );
 
         }
         sa = new SimpleAdapter(this, list,
                 R.layout.multi_lines,
                 new String[]{ "line1" , "line2" , "line3" ,"line4", "line5"},
-                new int[] {R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d, R.id.line_e });
+                new int[] {R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d, R.id.line_e});
         lst.setAdapter(sa);
 
         btnBack.setOnClickListener(new View.OnClickListener(){

@@ -46,7 +46,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
         order_details = new String[dbData.size()][];
         for(int i=0; i<order_details.length;i++){
             order_details[i] = new String[5];
-            String arrData = dbData.get(1).toString();
+            String arrData = dbData.get(i).toString();
             String[] strData = arrData.split(java.util.regex.Pattern.quote("$"));
             order_details[i][0] = strData[0];
             order_details[i][1] = strData[1];
@@ -62,11 +62,11 @@ public class OrderDetailsActivity extends AppCompatActivity {
             list = new ArrayList();
             for(int i = 0; i<order_details.length; i++){
                 item = new HashMap<String,String>();
-                item.put("line1",order_details[i][0]);
-                item.put("line2",order_details[i][1]);
-                item.put("line3",order_details[i][2]);
-                item.put("line4",order_details[i][3]);
-                item.put("line5",order_details[i][4]);
+                item.put("line1", order_details[i][0]);
+                item.put("line2", order_details[i][1]);
+                item.put("line3", order_details[i][2]);
+                item.put("line4", order_details[i][3]);
+                item.put("line5", order_details[i][4]);
                 list.add( item );
             }
 
